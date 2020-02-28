@@ -55,3 +55,18 @@
 .list-item img {
   width: 70%;
 }
+
+.login-div {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 50%;
+  padding-bottom: 30px;
+}
+
+.login-div button {
+  width: 100px;
+}
