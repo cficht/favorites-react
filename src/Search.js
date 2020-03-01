@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import List from './List.js';
-import { searchVideogames } from './favorites-api.js';
+import { searchVideogames, addFavorites, getFavorites } from './favorites-api.js';
 import { Link } from 'react-router-dom';
 
 export default class Search extends Component {
     state = {
         videogames: [],
+        favorites: [],
         input: '',
         loading: false,
+        user: {}
     }
 
     handleInput = (e) => {
@@ -24,24 +26,33 @@ export default class Search extends Component {
         })
     }
 
-    componentDidMount() {
-        console.log(this.props.user);
+    handleAddFavorite = async (videogame) => {
+        const newFavorite = {
+            name: videogame.name,
+            rating: videogame.rating,
+            background_image: videogame.background_image,
+            released: videogame.released,
+        }
+        await addFavorites(newFavorite, this.state.user.token)
+        const data = await getFavorites(this.state.user.token);
+        this.setState({ favorites: data.body })
     }
 
-    componentDidUpdate() {
-        console.log(this.props.user)
+    componentDidMount() {
+        this.setState({ user: this.props.user});
     }
 
     render() {
         return (
             <div>
                 <Link to="/favorites" user={this.props.user}>Favorites</Link>
+                <Link to="/login" user={this.props.user}>Login</Link>
                 <form onSubmit={this.handleSearch}>
                     <input onChange={this.handleInput} value={this.state.input}></input>
                     <button disabled={this.state.loading === true}>Search</button>
                 </form>
                 {
-                    this.state.loading ? "loading!!" : <List videogames={this.state.videogames} user={this.props.user}></List>
+                    this.state.loading ? "loading!!" : <List videogames={this.state.videogames} user={this.props.user} handleAddFavorite={this.handleAddFavorite} favorites={this.state.favorites}></List>
                 }
             </div>
         )
