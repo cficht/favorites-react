@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { searchVideogames } from './favorites-api';
 
 export default class Header extends Component {
     render() {

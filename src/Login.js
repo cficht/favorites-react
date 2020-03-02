@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { onSignup, onSignin} from './favorites-api.js'
+import { onSignup, onSignin} from './favorites-api.js';
 
 export default class Login extends Component {
     state = {
