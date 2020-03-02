@@ -3,13 +3,13 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  width: 10%;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 2s linear;
   }
 }
 
@@ -47,26 +47,118 @@
 
 .list-item {
   border: 1px solid black;
+  border-radius: 10px;
   width: 200px;
   float: left;
-
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
 }
 
-.list-item img {
+.game-title {
+  font-weight: 800;
+}
+
+.game-img {
   width: 70%;
 }
 
+.bold-text {
+  font-weight: 800;
+}
+
 .login-div {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   margin: 0 auto;
   width: 50%;
-  padding-bottom: 30px;
+  padding-top: 20px;
 }
 
 .login-div button {
   width: 100px;
+}
+
+.login-div form {
+  border: 1px solid #a5a2a2;
+  border-radius: 10px;
+  background-color:	#e5e5e5;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+#header-div {
+  background-color: #dd2020;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#header-div img {
+  width: 35%;
+}
+
+#nav-div {
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  padding: 10px;
+}
+
+#search-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#search-div form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#search-div button {
+  background-color: #dd2020;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+#favorite-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#favorite-div button {
+  background-color: #dd2020;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+#favorite-div span {
+  text-transform: capitalize;
+}
+
+.fave-icon {
+  width: 10%;
 }

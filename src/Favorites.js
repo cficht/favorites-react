@@ -12,8 +12,9 @@ export default class Favorites extends Component {
 
     componentDidMount = async () => {
         const user = this.props.user;
+        const userName = user.email.split('@')[0];
         this.setState({ user: user})
-        this.setState({ userName: user.email });
+        this.setState({ userName: userName });
         const data = await getFavorites(user.token);
         this.setState({ favorites: data.body })
     }
@@ -26,8 +27,8 @@ export default class Favorites extends Component {
 
     render() {
         return (
-            <div>
-                <h2>{this.state.userName}</h2>
+            <div id="favorite-div">
+                <h2><span>{this.state.userName}</span>'s favorite games:</h2>
                 <List videogames={this.state.favorites} handleRemoveFavorite={this.handleRemoveFavorite}></List>
             </div>
         )

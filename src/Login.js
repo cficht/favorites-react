@@ -58,7 +58,9 @@ export default class Login extends Component {
                     <form onSubmit={this.handleSignIn}>
                         <h2>Sign-in</h2>
                         <label>Name: <input onChange={e => this.handleUsernameSignIn(e)} value={this.state.usernameSignIn}></input></label>
+                        <br></br>
                         <label>Password: <input type="password" onChange={e => this.handlePasswordSignIn(e)} value={this.state.passwordSignIn}></input></label>
+                        <br></br>
                         <button>Submit</button>
                     </form>
                 </div>
@@ -66,7 +68,9 @@ export default class Login extends Component {
                     <form onSubmit={this.handleSignUp}>
                         <h2>Sign-up</h2>
                         <label>Name: <input onChange={e => this.handleUsernameSignUp(e)} value={this.state.usernameSignUp}></input></label>
+                        <br></br>
                         <label>Password: <input type="password" onChange={e => this.handlePasswordSignUp(e)} value={this.state.passwordSignUp}></input></label>
+                        <br></br>
                         <button>Submit</button>
                     </form>
                 </div>

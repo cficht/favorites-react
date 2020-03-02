@@ -45,13 +45,13 @@ export default class Search extends Component {
 
     render() {
         return (
-            <div>
+            <div id="search-div">
                 <form onSubmit={this.handleSearch}>
                     <input onChange={this.handleInput} value={this.state.input}></input>
                     <button disabled={this.state.loading === true}>Search</button>
                 </form>
                 {
-                    this.state.loading ? "loading!!" : <List videogames={this.state.videogames} user={this.props.user} handleAddFavorite={this.handleAddFavorite} favorites={this.state.favorites}></List>
+                    this.state.loading ? <img src="loading.png" alt="" className="App-logo"/> : <List videogames={this.state.videogames} user={this.props.user} handleAddFavorite={this.handleAddFavorite} favorites={this.state.favorites}></List>
                 }
             </div>
         )
