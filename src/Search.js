@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import List from './List.js';
 import { searchVideogames, addFavorites, getFavorites } from './favorites-api.js';
-import { Link } from 'react-router-dom';
 
 export default class Search extends Component {
     state = {
@@ -18,6 +17,8 @@ export default class Search extends Component {
 
     handleSearch = async (e) => {
         e.preventDefault();
+        const favorites = await getFavorites(this.state.user.token);
+        this.setState({ favorites: favorites.body })
         this.setState({ loading: true });
         const data = await searchVideogames(this.state.input);
         this.setState({ 
@@ -38,15 +39,13 @@ export default class Search extends Component {
         this.setState({ favorites: data.body })
     }
 
-    componentDidMount() {
+    componentDidMount = async () => {
         this.setState({ user: this.props.user});
     }
 
     render() {
         return (
             <div>
-                <Link to="/favorites" user={this.props.user}>Favorites</Link>
-                <Link to="/login" user={this.props.user}>Login</Link>
                 <form onSubmit={this.handleSearch}>
                     <input onChange={this.handleInput} value={this.state.input}></input>
                     <button disabled={this.state.loading === true}>Search</button>

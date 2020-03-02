@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Header from './Header.js';
 import Search from './Search.js';
 import Favorites from './Favorites.js';
 import Login from './Login.js';
@@ -17,6 +18,7 @@ export default class App extends Component {
     return (
       <div>
         <BrowserRouter>
+        <Header></Header>
           <Switch>
             <PrivateRoute exact path="/" component={Search} user={this.state.user}/>
             <PrivateRoute exact path="/favorites" component={Favorites} user={this.state.user}/>
