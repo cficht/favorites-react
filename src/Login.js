@@ -31,9 +31,14 @@ export default class Login extends Component {
             email: this.state.usernameSignIn,
             password: this.state.passwordSignIn
         }
-        const signIn = await onSignin(user);
-        this.props.setUser(signIn);
-        this.props.history.push('/');
+        try {
+            const signIn = await onSignin(user);
+            this.props.setUser(signIn);
+            this.props.history.push('/');
+        } catch (err) {
+            this.setState({ responseError: err })
+            alert('Invalid login');
+        }
     }
 
     handleSignUp = async (e) => {
@@ -46,9 +51,14 @@ export default class Login extends Component {
             email: this.state.usernameSignUp,
             password: this.state.passwordSignUp
         }
-        const signUp = await onSignup(user);
-        this.props.setUser(signUp);
-        this.props.history.push('/');
+        try {
+            const signUp = await onSignup(user);
+            this.props.setUser(signUp);
+            this.props.history.push('/');
+        } catch (err) {
+            this.setState({ responseError: err })
+            alert('User already exists');
+        }
     }
 
     render() {
